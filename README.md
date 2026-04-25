@@ -4,7 +4,8 @@
 
 用户输入自然语言需求，6 个 AI Agent（Mike / Emma / Bob / David / Iris / Alex）以团队形式流式协作，最终生成可直接运行的自包含 HTML 应用，并通过 `iframe srcdoc` 实时预览。
 
-**🔗 在线演示：** [https://atoms-demo-zz.loca.lt](https://atoms-demo-zz.loca.lt)
+**🔗 在线演示：** [https://optimum-ridge-hide-earliest.trycloudflare.com](https://optimum-ridge-hide-earliest.trycloudflare.com)  
+**📦 GitHub：** [https://github.com/JustinZhang6/public-atoms-demo](https://github.com/JustinZhang6/public-atoms-demo)
 
 ## 功能特性
 
