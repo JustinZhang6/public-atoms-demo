@@ -18,11 +18,15 @@ const teamPlanSchema = z.object({
 export type TeamPlan = z.infer<typeof teamPlanSchema>;
 
 function createOpenAIClient() {
-  if (!process.env.OPENAI_API_KEY) {
+  const apiKey = process.env.OPENAI_API_KEY || process.env.STEP_API_KEY;
+  if (!apiKey) {
     return null;
   }
 
-  return new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  return new OpenAI({
+    apiKey,
+    baseURL: process.env.OPENAI_BASE_URL || "https://api.stepfun.com/v1",
+  });
 }
 
 function buildFallbackPlan(prompt: string): TeamPlan {
@@ -53,7 +57,7 @@ export async function createTeamPlan(input: {
 
   try {
     const completion = await client.chat.completions.create({
-      model: "gpt-4o",
+      model: process.env.AI_MODEL || "step-3.5-flash",
       response_format: { type: "json_object" },
       temperature: 0.7,
       messages: [
@@ -116,7 +120,7 @@ export async function* streamGeneratedHtml(input: {
 
   try {
     const stream = await client.chat.completions.create({
-      model: "gpt-4o",
+      model: process.env.AI_MODEL || "step-3.5-flash",
       stream: true,
       temperature: 0.8,
       messages: [
