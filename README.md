@@ -25,7 +25,7 @@
 | 语言 | TypeScript |
 | 样式 | Tailwind CSS |
 | 数据库 | better-sqlite3 (SQLite) |
-| AI 后端 | Step 3.5 (OpenAI-compatible SDK) |
+| AI 后端 | OpenAI-compatible API |
 | 编辑器 | CodeMirror 6 |
 | UI 组件 | Radix UI + shadcn 风格 |
 | 校验 | Zod v4 |
@@ -38,7 +38,7 @@ npm install
 
 # 2. 配置环境变量
 cp .env.example .env.local
-# 编辑 .env.local，填入 STEP_API_KEY
+# 编辑 .env.local，填入 OPENAI_API_KEY（支持任何 OpenAI-compatible API）
 
 # 3. 启动开发服务器
 npm run dev
@@ -51,9 +51,9 @@ open http://localhost:3000
 
 | 变量 | 必填 | 说明 |
 | --- | --- | --- |
-| `STEP_API_KEY` | 否 | Step 3.5 API Key；未配置时使用 fallback 模式 |
-| `OPENAI_BASE_URL` | 否 | API 地址，默认 `https://api.stepfun.com/v1` |
-| `AI_MODEL` | 否 | 模型名称，默认 `step-3.5-flash` |
+| `OPENAI_API_KEY` | 否 | OpenAI API Key；未配置时使用 fallback 模式 |
+| `OPENAI_BASE_URL` | 否 | API 地址，默认 `https://api.openai.com/v1`；支持任何 OpenAI-compatible API |
+| `AI_MODEL` | 否 | 模型名称，默认 `gpt-4o` |
 
 > 未配置 API Key 时，系统自动切换到 fallback 模式：使用预设的 Agent 对话和示例 HTML 输出，完整链路仍可正常运行和演示。
 

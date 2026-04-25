@@ -17,8 +17,7 @@ Atoms Demo 是一个多 Agent 协作的 AI 代码生成平台，灵感来源于 
 | TypeScript | 5.x | 类型安全 |
 | Tailwind CSS | 3.4 | 样式系统 |
 | better-sqlite3 | 12.x | 本地持久化 |
-| OpenAI SDK | 6.x | AI 接口（兼容 Step 3.5） |
-| Step 3.5 Flash | — | AI 后端（api.stepfun.com） |
+| OpenAI SDK | 6.x | AI 接口（OpenAI-compatible） |
 | CodeMirror | 6 | 代码编辑器 |
 | Radix UI | — | 无头 UI 组件 |
 | Zod | 4.x | 运行时校验 |
@@ -59,7 +58,7 @@ Atoms Demo 是一个多 Agent 协作的 AI 代码生成平台，灵感来源于 
 
 ## 架构设计亮点
 
-1. **OpenAI-Compatible 接入层**：通过 OpenAI SDK + 自定义 baseURL，一行配置即可切换不同 AI 后端（当前使用 Step 3.5 Flash）
+1. **OpenAI-Compatible 接入层**：通过 OpenAI SDK + 自定义 baseURL，一行配置即可切换不同 AI 后端（支持任何 OpenAI-compatible API）
 2. **双阶段生成**：先生成 Team Plan JSON（各 Agent 分工），再由 Alex 流式输出最终 HTML，兼顾协作感与执行效率
 3. **SSE 流式架构**：Agent 消息与代码输出统一走 Server-Sent Events，前端按事件类型分流到聊天面板和代码编辑器
 4. **SQLite 本地持久化**：better-sqlite3 同步 API，零配置、无外部依赖，适合 Demo 场景
@@ -78,7 +77,7 @@ npm install
 
 # 配置环境变量
 cp .env.example .env.local
-# 编辑 .env.local，填入 STEP_API_KEY（可选，不填则使用 fallback 模式）
+# 编辑 .env.local，填入 OPENAI_API_KEY（可选，不填则使用 fallback 模式）
 
 # 启动
 npm run dev
@@ -119,7 +118,7 @@ npm run build      # ✅ 生产构建通过
 ## Git History
 
 ```
-38a3a64 feat: switch AI backend to Step 3.5 (OpenAI-compatible)
+38a3a64 feat: add OpenAI-compatible AI backend
 698aa5e 补充交付文档与运行配置说明
 f01882c 实现多 Agent 工作台与流式预览链路
 d6930d9 添加 SQLite 持久化与项目目录页
