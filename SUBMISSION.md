@@ -6,8 +6,8 @@ Atoms Demo 是一个多 Agent 协作的 AI 代码生成平台，灵感来源于 
 
 ## 演示地址
 
-- **🔗 在线演示：** [https://atoms-demo-zz.loca.lt](https://atoms-demo-zz.loca.lt)
-- **📦 GitHub 仓库：** <!-- 创建后填入 -->
+- **🔗 在线演示：** <!-- 部署链接见笔试文档 -->
+- **📦 GitHub 仓库：** [https://github.com/JustinZhang6/public-atoms-demo](https://github.com/JustinZhang6/public-atoms-demo)
 
 ## 技术栈
 
@@ -128,3 +128,18 @@ d6930d9 添加 SQLite 持久化与项目目录页
 ```
 
 每个 commit 对应一个清晰的功能里程碑，commit message 包含变更原因说明。
+
+## AI 工具使用说明
+
+本项目全程使用 AI 辅助开发，工具链如下：
+
+| 工具 | 用途 | 说明 |
+| --- | --- | --- |
+| **OpenAI Codex CLI** | 代码生成与架构搭建 | 主力开发工具，负责工程初始化、核心模块实现、迭代修复 |
+| **Claude（OpenClaw Agent）** | 需求分析、代码审查、测试验收 | 负责调研 atoms.dev 文档、QA 测试、交付文档撰写 |
+
+开发模式：
+- **三层架构**：L1 指挥层（Claude Agent 做需求分析和任务拆解）→ L2 执行层（Codex 做代码实现）→ L1 审查验收
+- **Codex 完成 4 个里程碑 commit**（工程初始化 → 持久化 → 工作台 → 文档），每个 commit 后由 L1 审查
+- **AI 后端切换**由 L1 直接完成（单文件修改，无需调用 Codex）
+- **QA 测试**通过 headless Chrome 浏览器自动化完成，覆盖全链路 8 项测试
