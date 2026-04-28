@@ -6,7 +6,7 @@ Atoms Demo 是一个多 Agent 协作的 AI 代码生成平台，灵感来源于 
 
 ## 演示地址
 
-- **🔗 在线演示：** [https://optimum-ridge-hide-earliest.trycloudflare.com](https://optimum-ridge-hide-earliest.trycloudflare.com)
+- **🔗 在线演示：** [https://filling-strategic-weekend-nicholas.trycloudflare.com](https://filling-strategic-weekend-nicholas.trycloudflare.com)
 - **📦 GitHub 仓库：** [https://github.com/JustinZhang6/public-atoms-demo](https://github.com/JustinZhang6/public-atoms-demo)
 
 ## 技术栈
